@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "rinha-2024-q4-python-fastapi"
+version = "0.1.0"
+description = ""
+authors = ["Yuri Hartmann <yurihartmann@icloud.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.109.2"
+sqlmodel = "^0.0.14"
+pydantic = "^2.6.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
