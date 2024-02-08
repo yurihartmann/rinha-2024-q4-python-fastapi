@@ -10,10 +10,6 @@ RUN apk add build-base python3-dev libffi-dev
 ENV TZ America/Sao_Paulo
 ENV LANG pt_BR.UTF-8
 ENV LANGUAGE pt_BR.UTF-8
-ENV DD_INSTRUMENTATION_TELEMETRY_ENABLED=true
-ENV DD_LOGS_INJECTION=true
-ENV DD_PROFILING_ENABLED=false
-ENV DD_APPSEC_ENABLED=false
 
 # SERVICE
 COPY . .
@@ -26,4 +22,5 @@ RUN poetry config virtualenvs.create false
 # INSTALL PROJECT DEPENDENCIES
 RUN poetry install --only=main --no-cache --no-root
 
-CMD ["python", "src/main.py"]
+# RUN
+CMD ["python", "app/main.py"]

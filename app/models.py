@@ -1,26 +1,29 @@
+import uuid
 from datetime import datetime
-from typing import Literal
+from enum import Enum
+from sqlmodel import SQLModel, Field
 
-from sqlmodel import SQLModel, Field, Relationship
+
+class TipoTransacao(Enum):
+    CREDITO = "c"
+    DEBITO = "d"
 
 
-class Cliente(SQLModel):
+class Cliente(SQLModel, table=True):
     __tablename__ = "clientes"
 
     id: int = Field(primary_key=True)
+    nome: str
     limite: int
-    saldo_inicial: int
-
-    transacoes: list["Transactions"] = Relationship(back_populates="cliente")
+    saldo: int
 
 
-class Transacao(SQLModel):
+class Transacao(SQLModel, table=True):
     __tablename__ = "transacoes"
 
-    id_client: int = Field(foreign_key="clientes.id")
+    uuid: str = Field(primary_key=True, default_factory=uuid.uuid4)
+    id_client: int = Field()
     valor: int
-    tipo: Literal["c", "d"]
+    tipo: str
     descricao: str
     realizada_em: datetime = Field(default_factory=datetime.now)
-
-    cliente: Cliente = Relationship(back_populates="transacoes")

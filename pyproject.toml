@@ -12,9 +12,8 @@ sqlmodel = "^0.0.14"
 pydantic = "^2.6.1"
 orjson = "^3.9.13"
 uvicorn = "^0.27.0.post1"
-alembic = "^1.13.1"
-asyncpg = "^0.29.0"
 psycopg2-binary = "^2.9.9"
+greenlet = "^3.0.3"
 
 
 [build-system]
