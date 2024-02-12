@@ -23,4 +23,4 @@ RUN poetry config virtualenvs.create false
 RUN poetry install --only=main --no-cache --no-root
 
 # RUN
-CMD ["poetry", "run", "uvicorn", "app.main:app", "--port", "8080"]
+CMD ["poetry", "run", "uvicorn", "app.main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "8000"]
